@@ -11,7 +11,7 @@ name : Terraform Azure Subnet
 license: "APACHE"
 
 # Canonical GitHub repo
-github_repo: terraform-az-modules/terraform-azure-subnet
+github_repo: terraform-az-modules/terraform-azurerm-subnet
 
 # Badges to display
 badges:
@@ -40,7 +40,6 @@ providers:
 description: |-
   Terraform Azure subnet to create new subnets.
 
-# How to use this project
 # How to use this project
 usage: |-
   Here are some examples of how you can use this module in your inventory structure:
