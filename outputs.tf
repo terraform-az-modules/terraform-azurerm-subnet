@@ -54,3 +54,9 @@ output "route_table_names" {
   value       = { for k, r in module.route_table : k => r.route_table_names }
   description = "Map of route table names to their names."
 }
+
+output "subnet_id" {
+  description = "The resource ID"
+  value       = azurerm_subnet.subnet.id
+}
+
