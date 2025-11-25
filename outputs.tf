@@ -1,56 +1,31 @@
 ##-----------------------------------------------------------------------------
-## Subnet
-##-----------------------------------------------------------------------------
-output "subnet_ids" {
-  value       = { for k, s in azurerm_subnet.subnet : k => s.id }
-  description = "Map of subnet names to their IDs."
-}
-
-output "subnet_names" {
-  value       = { for k, s in azurerm_subnet.subnet : k => s.name }
-  description = "Map of subnet names to their names."
-}
-
-output "subnet_address_prefixes" {
-  value       = { for k, s in azurerm_subnet.subnet : k => s.address_prefixes }
-  description = "Map of subnet names to their address prefixes."
-}
-
-##-----------------------------------------------------------------------------
 ## Public IP
 ##-----------------------------------------------------------------------------
 output "public_ip_addresses" {
-  value       = { for k, pip in module.nat_gateway : k => pip.public_ip_addresses }
-  description = "Map of NAT Gateway names to their associated public IP addresses."
+  value       = azurerm_public_ip.pip.ip_address
+  description = "The actual allocated public IPv4 address for the Azure Public IP resource."
 }
 
 output "public_ip_ids" {
-  value       = { for k, pip in module.nat_gateway : k => pip.public_ip_ids }
-  description = "Map of NAT Gateway names to their associated public IP resource IDs."
+  value       = azurerm_public_ip.pip.id
+  description = "The unique Azure Resource Manager identifier for the Public IP resource."
 }
 
 ##-----------------------------------------------------------------------------
 ## Net Gateway
 ##-----------------------------------------------------------------------------
 output "nat_gateway_ids" {
-  value       = { for k, v in module.nat_gateway : k => v.nat_gateway_ids }
-  description = "Map of NAT Gateway names to their IDs."
+  value       = azurerm_nat_gateway.natgw.id
+  description = "The ID of the Azure NAT Gateway created."
 }
 
 output "nat_gateway_names" {
-  value       = { for k, n in module.nat_gateway : k => n.nat_gateway_names }
-  description = "Map of NAT Gateway names to their names."
+  value       = azurerm_nat_gateway.natgw.name
+  description = "The name of the Azure NAT Gateway resource."
 }
 
-##-----------------------------------------------------------------------------
-## Route table
-##-----------------------------------------------------------------------------
-output "route_table_ids" {
-  value       = { for k, r in module.route_table : k => r.route_table_ids }
-  description = "Map of route table names to their IDs."
+output "pip_ip_address" {
+  description = "The address of the resource"
+  value       = azurerm_public_ip.pip_ip.address
 }
 
-output "route_table_names" {
-  value       = { for k, r in module.route_table : k => r.route_table_names }
-  description = "Map of route table names to their names."
-}
