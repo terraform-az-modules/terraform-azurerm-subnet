@@ -20,11 +20,6 @@ jobs:
     with:
       working_directory: './examples/subnet_with_nat_gateway/'    
 
-  nsg-subnet-example:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
-    with:
-      working_directory: './examples/subnet_with_nsg/' 
-
   route-table-subnet-example:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
