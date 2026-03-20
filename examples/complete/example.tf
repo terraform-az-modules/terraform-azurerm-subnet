@@ -47,7 +47,7 @@ module "subnets" {
   virtual_network_name = module.vnet.vnet_name
 
   subnets = [
-    # Subnet 1: Delegated subnet 
+    # Subnet 1: Delegated subnet
     {
       name              = "subnet1"
       subnet_prefixes   = ["10.0.1.0/24"]
@@ -64,7 +64,7 @@ module "subnets" {
         }
       ]
     },
-    # Subnet 2: azure Firewall subnet 
+    # Subnet 2: azure Firewall subnet
     {
       name            = "AzureFirewallSubnet"
       subnet_prefixes = ["10.0.2.0/24"]

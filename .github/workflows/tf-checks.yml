@@ -14,19 +14,19 @@ jobs:
   complete-example:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
-      working_directory: './examples/complete/'    
+      working_directory: './examples/complete/'
       provider: none
-  
+
   nat-gateway-subnet-example:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
-      working_directory: './examples/subnet_with_nat_gateway/'    
+      working_directory: './examples/subnet_with_nat_gateway/'
       provider: none
 
   route-table-subnet-example:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
-      working_directory: './examples/subnet_with_route_table/' 
+      working_directory: './examples/subnet_with_route_table/'
       provider: none
 
 # Seperate Job for TFlint workflow call
@@ -34,4 +34,3 @@ jobs:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-lint.yml@master
     secrets:
       GITHUB: ${{ secrets.GITHUB }}
- 

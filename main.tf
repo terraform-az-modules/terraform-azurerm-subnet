@@ -48,7 +48,7 @@ module "route_table" {
 }
 
 ##-----------------------------------------------------------------------------
-## NAT Gateway – Creates a nat-gateway if required 
+## NAT Gateway – Creates a nat-gateway if required
 ##-----------------------------------------------------------------------------
 module "nat_gateway" {
   source                   = "./modules/nat_gateway"

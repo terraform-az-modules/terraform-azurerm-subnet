@@ -27,7 +27,7 @@ resource "azurerm_public_ip" "pip" {
 }
 
 ##-----------------------------------------------------------------------------
-## NAT Gateway 
+## NAT Gateway
 ##-----------------------------------------------------------------------------
 resource "azurerm_nat_gateway" "natgw" {
   name                    = var.resource_position_prefix ? format("ng-%s", module.labels.id) : format("%s-ng", module.labels.id)
