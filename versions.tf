@@ -12,4 +12,8 @@ terraform {
       version = ">=3.116.0"
     }
   }
+
+  provider_meta "azurerm" {
+    module_name = "terraform-az-modules/terraform-azurerm-subnet"
+  }
 }
