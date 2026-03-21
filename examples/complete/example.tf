@@ -14,7 +14,7 @@ locals {
 ##-----------------------------------------------------------------------------
 module "resource_group" {
   source      = "terraform-az-modules/resource-group/azurerm"
-  version     = "1.0.3"
+  version     = "1.0.4"
   name        = local.name
   environment = local.environment
   label_order = local.label_order
