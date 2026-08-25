@@ -7,7 +7,6 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name                           = var.resource_group_name
   virtual_network_name                          = var.virtual_network_name
   address_prefixes                              = each.value.subnet_prefixes
-  service_endpoints                             = lookup(each.value, "service_endpoints", null)
   service_endpoint_policy_ids                   = lookup(each.value, "service_endpoint_policy_ids", null)
   private_link_service_network_policies_enabled = lookup(each.value, "private_link_service_policies", true)
   private_endpoint_network_policies             = lookup(each.value, "private_endpoint_policies", "Enabled")
@@ -24,6 +23,14 @@ resource "azurerm_subnet" "subnet" {
           actions = service_delegation.value.actions
         }
       }
+    }
+  }
+
+  dynamic "service_endpoint" {
+    for_each = lookup(each.value, "service_endpoints", [])
+
+    content {
+      service = service_endpoint.value
     }
   }
 }
